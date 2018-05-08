@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'DlOemMoudle_Example' do
+  pod 'DlOemMoudle', :path => '../'
+
+  target 'DlOemMoudle_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
