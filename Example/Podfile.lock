@@ -15,12 +15,6 @@ PODS:
   - BlocksKit/UIKit (2.2.5):
     - BlocksKit/Core
     - BlocksKit/DynamicDelegate
-  - CocoaLumberjack (3.4.2):
-    - CocoaLumberjack/Default (= 3.4.2)
-    - CocoaLumberjack/Extensions (= 3.4.2)
-  - CocoaLumberjack/Default (3.4.2)
-  - CocoaLumberjack/Extensions (3.4.2):
-    - CocoaLumberjack/Default
   - DlOemMoudle (0.1.0):
     - Alamofire
     - BlocksKit
@@ -38,14 +32,9 @@ PODS:
   - FSCalendar (2.7.9)
   - MBProgressHUD (1.1.0)
   - NSObject-SafeExpectations (0.0.2)
-  - R.swift (4.0.0):
-    - R.swift.Library (~> 4.0.0)
-  - R.swift.Library (4.0.0)
   - Realm (3.5.0):
     - Realm/Headers (= 3.5.0)
   - Realm/Headers (3.5.0)
-  - RealmSwift (3.5.0):
-    - Realm (= 3.5.0)
   - RxCocoa (4.1.2):
     - RxSwift (~> 4.0)
   - RxSwift (4.1.2)
@@ -56,27 +45,16 @@ PODS:
   - YYModel (1.0.4)
 
 DEPENDENCIES:
-  - CocoaLumberjack
   - DlOemMoudle (from `../`)
-  - FSCalendar
-  - R.swift
-  - RealmSwift
-  - RxCocoa
-  - RxSwift
-  - SwiftDate
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - Alamofire
     - BlocksKit
-    - CocoaLumberjack
     - FSCalendar
     - MBProgressHUD
     - NSObject-SafeExpectations
-    - R.swift
-    - R.swift.Library
     - Realm
-    - RealmSwift
     - RxCocoa
     - RxSwift
     - SnapKit
@@ -92,15 +70,11 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
   BlocksKit: 7f422b971407001178d181a43b99014ea2591fe6
-  CocoaLumberjack: db7cc9e464771f12054c22ff6947c5a58d43a0fd
-  DlOemMoudle: 6a3fc2b885f2da43882505cfaadcf808badc69ed
+  DlOemMoudle: 64e822e6dfbfb81f73ccc90799faaf818a288bf0
   FSCalendar: a04b09f16f811bc92e82f3cf852a15225233b9d5
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
   NSObject-SafeExpectations: 7d7f48df90df4e11da7cfe86b64f45eff7a7f521
-  R.swift: d6a5ec2f55a8441dc0ed9f1f8b37d7d11ae85c66
-  R.swift.Library: c3af34921024333546e23b70e70d0b4e0cffca75
   Realm: 0378021c424e4e2bd6a0e63b27881e929d9b9ad1
-  RealmSwift: 3322562622fda2ad596985ead4d8d8be30cf838c
   RxCocoa: d88ba0f1f6abf040011a9eb4b539324fc426843a
   RxSwift: e49536837d9901277638493ea537394d4b55f570
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
@@ -109,6 +83,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: 61e84d17db43bcaf82abdbf77dbdb19123ad92ba
+PODFILE CHECKSUM: 65b843fc4aa6e863a7880ae21be1b0b1d072d3a3
 
 COCOAPODS: 1.5.0

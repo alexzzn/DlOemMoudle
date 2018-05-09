@@ -59,8 +59,7 @@ class ODetailsController: UIViewController {
 
             make.edges.equalTo(0)
         }
-
-
+    
     }
 
 }

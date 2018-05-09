@@ -42,9 +42,9 @@ Pod::Spec.new do |s|
     s.public_header_files = 'DlOemMoudle/Classes/**/*.{h}'
     s.module_name = 'DlOemMoudle'
     #s.frameworks = 'UIKit','Foundation'
-    #s.pod_target_xcconfig = {
-    #'SWIFT_VERSION' => '4.0',
-    #}
+    s.pod_target_xcconfig = {
+        'SWIFT_VERSION' => '4.0',
+    }
     
     s.dependency  'FSCalendar'
     s.dependency  'SwiftDate'
