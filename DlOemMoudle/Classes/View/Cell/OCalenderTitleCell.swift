@@ -22,7 +22,8 @@ class OCalenderTitleCell: UITableViewCell {
     @IBOutlet weak var contentV: UITextView!
     @IBOutlet weak var leftV: UIImageView!
     @IBOutlet weak var titleLab: UILabel!
-
+    @IBOutlet weak var timeLab: UILabel!
+    
 
 
 
@@ -37,10 +38,11 @@ class OCalenderTitleCell: UITableViewCell {
         let data = Date.init(timeIntervalSince1970: TimeInterval(timeInterval))
 
 
-        dayLab.text = data.day.toString() + " / " + data.weekdayName
+        dayLab.text = data.day.toString() + " / " + data.weekdayShortName
         yearLab.text = data.year.toString() + "." + data.monthName
 
         titleLab.text = model.title
+        timeLab.text = data.hour.toString() + ":" + data.minute.toString()//model.timeInterval.t
         contentV.attributedText = model.contentText.toAttr(lineH: 2, font: UIFont.systemFont(ofSize: 12))
         //        contentV.text = model.contentText
     }

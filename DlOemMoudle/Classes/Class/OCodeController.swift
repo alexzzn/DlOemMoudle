@@ -26,15 +26,15 @@ class OCodeController: UIViewController {
         super.viewDidLoad()
 
         codeTF.rx.text.bind { [weak self] str in
-
-
-            if str == nil { return }
-            if str!.characters.count == 4 {
+            
+            guard let nStr = str else { return }
+            
+            if nStr.count >= 4 {
 
                 self?.codeTF.text = str?.subToOffset(right: 4)
                 self?.loginIn()
             }
-        }.addDisposableTo(dispose)
+        }.disposed(by:dispose)
 
         actionBtn.rx.controlEvent(.touchUpInside).subscribe(onNext: { [weak self]() in
             
@@ -56,7 +56,7 @@ class OCodeController: UIViewController {
     // 登录
     func sendCode() {
 
-        let url = "https://yxd-api.milicaixian.cn/vanguard/user/code"
+        let url = "https://baidu.com"
 
         let companyId = String.init(format: "%d", 1000)
         let params = ["phoneNo":"\(phoneNum ?? "")","type":"1","companyId":companyId]
@@ -82,7 +82,7 @@ class OCodeController: UIViewController {
     // 登录
     func loginIn() {
 
-        let url = "https://yxd-api.milicaixian.cn/vanguard/user/loginByCode"
+        let url = "https://baidu.com"
         var params = [String:String]()// ["phoneNo":"17858656212","code":"6949"]
 
         params["phoneNo"] = phoneNum
@@ -97,15 +97,15 @@ class OCodeController: UIViewController {
 
 
             DlOemHUD.dismiss()
+            
+            OUser.setLogin(islogin: true)
+            self?.navigationController?.dismiss(animated: true, completion: nil)
 
-            if res.result.isSuccess  {
-
-                 OUser.setLogin(islogin: true)
-                self?.navigationController?.dismiss(animated: true, completion: nil)
-
-            } else {
-                DlOemHUD.showError(title: "登录失败，请重新输入验证码")
-            }
+            //            if res.result.isSuccess  {
+            //
+            //            } else {
+            //                DlOemHUD.showError(title: "登录失败，请重新输入验证码")
+            //            }
         }
 
 

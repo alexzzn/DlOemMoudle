@@ -26,6 +26,7 @@ class OSearchController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        navigationItem.title = "搜索"
         tableView.rowHeight = 108
         tableView.tableFooterView = UIView()
         tableView.backgroundColor = UIColor.groupTableViewBackground

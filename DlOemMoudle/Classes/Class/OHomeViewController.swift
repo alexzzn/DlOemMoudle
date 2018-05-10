@@ -50,16 +50,18 @@ class OHomeViewController: UIViewController {
         let theComponents = calendar.dateComponents(components, from: Date())
 
         //TODO:
-//        let zhYearStr = (theComponents.month?.toString() ?? "-")! + "月" +  (theComponents.day?.toString() ?? "-")! + "日"
-//
-//        zhYearLab.text =  "农历  " + zhYearStr
+        let strC1 = theComponents.month?.toString()
+        let strC2 = theComponents.day?.toString()
+        
+        let zhYearStr = (strC1 ?? "-")! + "月" +  (strC2 ?? "-")! + "日"
+        zhYearLab.text =  "农历 " + zhYearStr
     }
 
 
     func reqNet() {
 
 
-        let url = "https://yxd-api.milicaixian.cn/vanguard/user/loginByToken"
+        let url = "https://baidu.com/"
         var params = [String:String]()
 
         params["token"] = OUser.getToken()
@@ -100,8 +102,6 @@ class OHomeViewController: UIViewController {
 
         // 检测是否登录
         if OUser.isLogin() == false {
-
-//            guard let vc = R.storyboard.oController.oLoginRootNav() else { return }
             
             guard let vc = OCommon.getDlOemStory()?.instantiateViewController(withIdentifier: "OLoginRootNav") else { return }
             navigationController?.present(vc, animated: true, completion: nil)

@@ -14,37 +14,42 @@ import RxSwift
 class OLoginController: UIViewController {
 
     @IBOutlet weak var phoneTF: UITextField!
+    @IBOutlet weak var loginBtn: UIButton!
 
-
-    @IBAction func actionJump(_ sender: UIButton) {
-
-        if phoneTF.text?.characters.isEmpty == true {
-
-            DlOemHUD.showToast(info: "请输入手机号")
-        }
-        
-        let vc = OCommon.getDlOemStory()?.instantiateViewController(withIdentifier: "OCodeController") as?OCodeController
-        
-        vc?.phoneNum = phoneTF.text
-        navigationController?.pushViewController(vc!, animated: true)
-    }
 
     var dispose = DisposeBag()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-
-
-        phoneTF.rx.text.bind { [weak self] str in
-
-
-            if str == nil { return }
-            if str!.characters.count > 11 {
-
-                self?.phoneTF.text = str?.subToOffset(right: 11)
+        
+        let signal = phoneTF.rx.text.map { [weak self] (v) -> Bool in
+            
+            guard let nv = v  else { return false }
+            
+            if  nv.count == 0 {
+                
+                return false
+            } else if nv.count >= 11 {
+                
+                self?.phoneTF.text = nv.subToOffset(right: 11)
+                return true
+            } else {
+                
+                return false
             }
-        }.addDisposableTo(dispose)
-
+        }
+        
+        signal.bind(to: loginBtn.rx.isEnabled).disposed(by: dispose)
+        
+        //
+        loginBtn.rx.controlEvent(.touchUpInside).subscribe(onNext: { [unowned self] () in
+            
+            let vc = OCommon.getDlOemStory()?.instantiateViewController(withIdentifier: "OCodeController") as?OCodeController
+            
+            vc?.phoneNum = self.phoneTF.text
+            self.navigationController?.pushViewController(vc!, animated: true)
+            
+        }).disposed(by: dispose)
+        
     }
 }

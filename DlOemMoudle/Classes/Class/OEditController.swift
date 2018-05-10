@@ -70,7 +70,10 @@ class OEditController: WPViewController {
     func initView() {
 
         editBtn = UIButton()
-        editBtn?.setBackgroundImage(#imageLiteral(resourceName: "gai-dl"), for: UIControlState.normal)
+        
+        let img = OCommon.getImg(withName: "gai-dl")
+        editBtn?.setBackgroundImage(img, for: UIControlState.normal)
+        
         view.addSubview(editBtn!)
         editBtn?.snp.makeConstraints({ (make) in
 

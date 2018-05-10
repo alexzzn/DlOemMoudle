@@ -13,7 +13,18 @@ public class ORootNav: UINavigationController {
     override public func viewDidLoad() {
         super.viewDidLoad()
 
-        self.navigationBar.backgroundColor = UIColor.white
+    
+        navigationBar.tintColor = UIColor.darkGray
         view.backgroundColor = UIColor.white
+        
+        if #available(iOS 11.0, *) {
+            
+            navigationBar.prefersLargeTitles = true
+            navigationBar.largeTitleTextAttributes = [NSAttributedStringKey.foregroundColor:UIColor.darkGray]
+        } else {
+            // Fallback on earlier versions
+        }
+        
+        navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor:UIColor.darkGray,.font:UIFont.boldSystemFont(ofSize: 16)]
     }
 }

@@ -27,6 +27,14 @@ public class OCommon: NSObject {
         return story
     }
     
+    // 获取资源图片
+    class func getImg(withName:String) -> UIImage? {
+        
+        let moudleFileBundle = Bundle.init(for: self.classForCoder())
+        let img = UIImage.init(named: withName, in: moudleFileBundle, compatibleWith: nil)
+        return img
+    }
+    
     // 模拟网络
     public class func requestNet(next:@escaping ()->Void) {
 
