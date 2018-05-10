@@ -17,6 +17,7 @@ class DlOemError:Error {
 
 public class OCommon: NSObject {
 
+    //
     
     // 获取storyboard
     public class func getDlOemStory() -> UIStoryboard? {

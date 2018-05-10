@@ -105,8 +105,14 @@ class OCalendarController: UIViewController {
             
             notiLab = UILabel.intiWith(title: "当天没有日记标签", titleFont: UIFont.systemFont(ofSize: 16), titleColor: UIColor.darkGray, bgColor: nil)
             notiLab?.textAlignment = .center
-            notiLab?.frame = CGRect.init(x: 0, y: 360, width: DlOemFrame.Screen.Width, height: 50)
+            
+            //notiLab?.frame = CGRect.init(x: 0, y: 400, width: DlOemFrame.Screen.Width, height: 50)
             view.addSubview(notiLab!)
+            notiLab?.snp.makeConstraints({ (make) in
+                
+                make.centerX.equalToSuperview()
+                make.top.equalTo(calendarView.snp.bottom).offset(20)
+            })
 
         } else {
 

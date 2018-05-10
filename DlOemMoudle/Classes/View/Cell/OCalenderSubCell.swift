@@ -12,9 +12,7 @@ import SwiftDate
 class OCalenderSubCell: UITableViewCell {
 
     var model = ONoteRealmModel() {
-
-
-
+        
         didSet {
             initData()
         }
