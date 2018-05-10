@@ -119,9 +119,7 @@ extension OEditController:UINavigationBarDelegate {
                 self?.isEditingFlag = false
 
             }, cancelCol: {
-
-
-
+                
             })
             return false
         }

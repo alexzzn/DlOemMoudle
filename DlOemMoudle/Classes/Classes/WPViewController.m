@@ -222,7 +222,7 @@
                                                               style:UIAlertActionStyleDefault
                                                             handler:^(UIAlertAction *action){
                                                                 NSProgress * progress = [[NSProgress alloc] initWithParent:nil userInfo:@{@"imageID":self.selectedMediaID}];
-                                                                progress.totalUnitCount = 100;
+                                                                progress.totalUnitCount = 15;
                                                                 [NSTimer scheduledTimerWithTimeInterval:0.1
                                                                                                  target:self
                                                                                                selector:@selector(timerFireMethod:)
@@ -281,7 +281,7 @@
                                                               style:UIAlertActionStyleDefault
                                                             handler:^(UIAlertAction *action){
                                                                 NSProgress * progress = [[NSProgress alloc] initWithParent:nil userInfo:@{@"videoID":weakSelf.selectedMediaID}];
-                                                                progress.totalUnitCount = 100;
+                                                                progress.totalUnitCount = 15;
                                                                 [NSTimer scheduledTimerWithTimeInterval:0.1
                                                                                                  target:self
                                                                                                selector:@selector(timerFireMethod:)
@@ -330,7 +330,7 @@
 
     NSProgress *progress = [[NSProgress alloc] initWithParent:nil userInfo:@{ @"imageID": imageID, @"url": path }];
     progress.cancellable = YES;
-    progress.totalUnitCount = 100;
+    progress.totalUnitCount = 15;
     NSTimer * timer = [NSTimer scheduledTimerWithTimeInterval:0.1
                                                        target:self
                                                      selector:@selector(timerFireMethod:)
@@ -398,7 +398,7 @@
                                                                     NSProgress *progress = [[NSProgress alloc] initWithParent:nil
                                                                                                                      userInfo:@{@"videoID": videoID, @"url": videoPath, @"poster": posterImagePath }];
                                                                     progress.cancellable = YES;
-                                                                    progress.totalUnitCount = 100;
+                                                                    progress.totalUnitCount = 15;
                                                                     [NSTimer scheduledTimerWithTimeInterval:0.1
                                                                                                      target:self
                                                                                                    selector:@selector(timerFireMethod:)
