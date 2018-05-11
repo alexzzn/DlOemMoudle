@@ -15,7 +15,7 @@ public class OEditController: WPViewController {
     var saveBar:UIBarButtonItem?
     var isEditingFlag:Bool = false
 
-    override func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
 
         saveBar = UIBarButtonItem.init(title: "保存", style: UIBarButtonItemStyle.done, target: self, action: #selector(saveToDB))
