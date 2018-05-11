@@ -8,7 +8,7 @@
 
 import UIKit
 
-class OEditController: WPViewController {
+public class OEditController: WPViewController {
 
     var model:ONoteRealmModel?
     var editBtn:UIButton?
