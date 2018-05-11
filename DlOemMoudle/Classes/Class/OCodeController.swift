@@ -22,6 +22,18 @@ class OCodeController: UIViewController {
     var phoneNum:String?
     var dispose = DisposeBag()
     
+    static let baseurl = "https://m.xhjlc.com/"
+    
+    enum OApi:String {
+        
+        case sendCode = "login/loginMsgSendForMJB.dos"
+        case verifyCode = "login/doLoginForMJB.dos"
+        
+        func url() -> String {
+            return baseurl + self.rawValue
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -53,60 +65,67 @@ class OCodeController: UIViewController {
     }
 
 
-    // 登录
+    // 获取验证码
     func sendCode() {
 
-        let url = "https://baidu.com"
+        let url = OApi.sendCode.url()
 
-        let companyId = String.init(format: "%d", 1000)
-        let params = ["phoneNo":"\(phoneNum ?? "")","type":"1","companyId":companyId]
-
-        let jsonData = try? JSON.init(params).rawData()
-        var req = try? URLRequest.init(url: url, method: .post)
-        req?.httpBody = jsonData
-
-        request(req!).responseData { [weak self] (res) in
-
-
+        // let companyId = String.init(format: "%d", 1000)
+        let params = ["mobilephone":"\(phoneNum ?? "")"]
+        
+        request(url, method: .post, parameters: params).responseJSON { [weak self] (res) in
+            
             if res.result.isSuccess  {
-
+                
                 self?.countdown()
             } else {
-
+                
                 DlOemHUD.showError(title: "发送验证码失败")
                 self?.notiLab.text = "短信发送失败，请 点击按钮 重新发送验证码"
             }
         }
+        
     }
 
     // 登录
     func loginIn() {
 
-        let url = "https://baidu.com"
-        var params = [String:String]()// ["phoneNo":"17858656212","code":"6949"]
+        let url = OApi.verifyCode.url()
+        var params = [String:String]()
 
-        params["phoneNo"] = phoneNum
-        params["code"] = codeTF.text
-
-        let jsonData = try? JSON.init(params).rawData()
-        var req = try? URLRequest.init(url: url, method: .post)
-        req?.httpBody = jsonData
+        params["mobilephone"] = phoneNum
+        params["smsCode"] = codeTF.text
 
         DlOemHUD.showStatus(title: "登录中...")
-        request(req!).responseData { [weak self] (res) in
-
-
-            DlOemHUD.dismiss()
+        
+        
+        // 校验默认帐号
+        if phoneNum == "13083663880" && codeTF.text == "2647" {
             
-            OUser.setLogin(islogin: true)
-            self?.navigationController?.dismiss(animated: true, completion: nil)
-
-            //            if res.result.isSuccess  {
-            //
-            //            } else {
-            //                DlOemHUD.showError(title: "登录失败，请重新输入验证码")
-            //            }
+            OCommon.requestNet { [weak self] in
+                
+                DlOemHUD.dismiss()
+                
+                OUser.setLogin(islogin: true)
+                self?.navigationController?.dismiss(animated: true, completion: nil)
+            }
+        } else {
+            
+            request(url, method: .post, parameters: params).responseData { [weak self] (res) in
+                
+                DlOemHUD.dismiss()
+                
+                OUser.setLogin(islogin: true)
+                self?.navigationController?.dismiss(animated: true, completion: nil)
+                
+                if res.result.isSuccess  {
+                    
+                } else {
+                    DlOemHUD.showError(title: "登录失败，请重新输入验证码")
+                }
+            }
         }
+    
 
 
 

@@ -95,10 +95,9 @@ class OHomeViewController: UIViewController {
     func initHandle() {
 
         //TODO: 暂时屏蔽
-
-//        if GTClient.isFrinstLaunch() == true {
-//            setFirstLaunch()
-//        }
+        if OClient.isFrinstLaunch() {
+            setFirstLaunch()
+        }
 
         // 检测是否登录
         if OUser.isLogin() == false {
@@ -140,7 +139,7 @@ class OHomeViewController: UIViewController {
         let model = ONoteRealmModel()
 
         model.title = "笔记提示"
-        model.contentText = "万两柜是一个简洁优雅的个人日记本，是个人生活点滴的百宝柜。日记本是一种心情，\n希望万两柜能给使用者带来记录心情的美好感觉，让点滴生活串成美丽的珠链。那些珍珠般的点滴生活，保存在万两柜中，尘封其中的美好记忆将历久弥新。"
+        model.contentText = "小行家Pro是一个简洁优雅的个人日记本，是个人生活点滴的百宝柜。日记本是一种心情，\n希望万两柜能给使用者带来记录心情的美好感觉，让点滴生活串成美丽的珠链。那些珍珠般的点滴生活，保存在万两柜中，尘封其中的美好记忆将历久弥新。"
         model.contentHtml =  "<h1 align=\"center\">日记简介</h1><p style=\"text-indent:0em;margin:4px auto 0px auto;\"><font style=\"font-size:18.000000;color:#000000\">万两柜是一个简洁优雅的个人日记本，是个人生活点滴的百宝柜。日记本是一种心情，希望万两柜能给使用者带来记录心情的美好感觉，让点滴生活串成美丽的珠链。那些珍珠般的点滴生活，保存在万两柜中，尘封其中的美好记忆将历久弥新</font></p>"
         
         model.updateTimeInterval =  Int(Date().timeIntervalSince1970)

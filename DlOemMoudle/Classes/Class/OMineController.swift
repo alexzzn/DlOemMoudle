@@ -11,7 +11,7 @@ import UIKit
 class OMineController: UITableViewController {
 
 
-    var titleArr = ["日历","关于我们","意见反馈"]//"退出登录"
+    var titleArr = ["日历","关于我们","意见反馈","退出登录"]
 
     override func viewDidLoad() {
         
