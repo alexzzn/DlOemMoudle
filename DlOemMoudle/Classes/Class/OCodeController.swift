@@ -47,23 +47,9 @@ class OCodeController: UIViewController {
     }
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-
-        codeTF.rx.text.map { [unowned self](str) -> Bool in
-            
-            guard let nStr = str else { return false }
-            
-            if nStr.count > 4 {
-                self.codeTF.text = nStr.subToOffset(right: 4)
-            }
-            return nStr.count == 4
-            
-        }.distinctUntilChanged().bind(to: isEnabled).disposed(by: dispose)
         
-        actionBtn.rx.controlEvent(.touchUpInside).subscribe(onNext: { [weak self]() in
-            
-            self?.sendCode()
-        }).disposed(by: dispose)
+        super.viewDidLoad()
+        initHandle()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -77,7 +63,25 @@ class OCodeController: UIViewController {
     }
     
     
-
+    //
+    func initHandle() {
+        
+        codeTF.rx.text.map { [unowned self](str) -> Bool in
+            
+            guard let nStr = str else { return false }
+            
+            if nStr.count > 4 {
+                self.codeTF.text = nStr.subToOffset(right: 4)
+            }
+            return nStr.count == 4
+            
+            }.distinctUntilChanged().bind(to: isEnabled).disposed(by: dispose)
+        
+        actionBtn.rx.controlEvent(.touchUpInside).subscribe(onNext: { [weak self]() in
+            
+            self?.sendCode()
+        }).disposed(by: dispose)
+    }
 
     // 获取验证码
     func sendCode() {
