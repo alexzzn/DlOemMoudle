@@ -27,6 +27,8 @@
 @property  NSString  *contentHtml;
 // logo
 @property  NSString  *logo;
+// id
+@property  NSString  *uid;
 
 
 

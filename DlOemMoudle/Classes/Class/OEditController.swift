@@ -51,6 +51,8 @@ class OEditController: WPViewController {
             DlOemHUD.showError(title: "请输入日记信息")
             return
         }
+        
+        newModel.uid = OUser.getUserId()
 
         let realm = RLMRealm.default()
         realm.beginWriteTransaction()

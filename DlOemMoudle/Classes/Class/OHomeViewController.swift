@@ -139,6 +139,7 @@ class OHomeViewController: UIViewController {
         let model = ONoteRealmModel()
 
         model.title = "笔记提示"
+        model.uid = OUser.getUserId()
         model.contentText = "小行家Pro是一个简洁优雅的个人日记本，是个人生活点滴的百宝柜。日记本是一种心情，\n希望万两柜能给使用者带来记录心情的美好感觉，让点滴生活串成美丽的珠链。那些珍珠般的点滴生活，保存在万两柜中，尘封其中的美好记忆将历久弥新。"
         model.contentHtml =  "<h1 align=\"center\">日记简介</h1><p style=\"text-indent:0em;margin:4px auto 0px auto;\"><font style=\"font-size:18.000000;color:#000000\">万两柜是一个简洁优雅的个人日记本，是个人生活点滴的百宝柜。日记本是一种心情，希望万两柜能给使用者带来记录心情的美好感觉，让点滴生活串成美丽的珠链。那些珍珠般的点滴生活，保存在万两柜中，尘封其中的美好记忆将历久弥新</font></p>"
         
@@ -149,6 +150,7 @@ class OHomeViewController: UIViewController {
         dateFormatter.dateFormat = "yyyy-MM-dd"
 
         model.dayDateStr = dateFormatter.string(from: Date())
+        model.uid = OUser.getUserId()
 
         let realm = RLMRealm.default()
 

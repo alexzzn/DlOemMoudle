@@ -34,20 +34,32 @@ class OCodeController: UIViewController {
         }
     }
     
+    // 绑定
+    var isEnabled: Binder<Bool> {
+        
+    
+        return Binder<Bool>.init(self, binding: { (o, v) in
+            
+            if v == true {
+                o.loginIn()
+            }
+        })
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        codeTF.rx.text.bind { [weak self] str in
+        codeTF.rx.text.map { [unowned self](str) -> Bool in
             
-            guard let nStr = str else { return }
+            guard let nStr = str else { return false }
             
-            if nStr.count >= 4 {
-
-                self?.codeTF.text = str?.subToOffset(right: 4)
-                self?.loginIn()
+            if nStr.count > 4 {
+                self.codeTF.text = nStr.subToOffset(right: 4)
             }
-        }.disposed(by:dispose)
-
+            return nStr.count == 4
+            
+        }.distinctUntilChanged().bind(to: isEnabled).disposed(by: dispose)
+        
         actionBtn.rx.controlEvent(.touchUpInside).subscribe(onNext: { [weak self]() in
             
             self?.sendCode()
@@ -63,6 +75,8 @@ class OCodeController: UIViewController {
         notiLab.text = notiStr
         codeTF.becomeFirstResponder()
     }
+    
+    
 
 
     // 获取验证码
@@ -107,6 +121,8 @@ class OCodeController: UIViewController {
                 DlOemHUD.dismiss()
                 
                 OUser.setLogin(islogin: true)
+                OUser.setUserId(text: "13083663880")
+                
                 self?.navigationController?.dismiss(animated: true, completion: nil)
             }
         } else {
@@ -114,21 +130,19 @@ class OCodeController: UIViewController {
             request(url, method: .post, parameters: params).responseData { [weak self] (res) in
                 
                 DlOemHUD.dismiss()
-                
-                OUser.setLogin(islogin: true)
                 self?.navigationController?.dismiss(animated: true, completion: nil)
                 
                 if res.result.isSuccess  {
                     
+                    OUser.setLogin(islogin: true)
+                    OUser.setUserId(text: (self?.phoneNum ?? ""))
                 } else {
+                    
                     DlOemHUD.showError(title: "登录失败，请重新输入验证码")
                 }
             }
+            return
         }
-    
-
-
-
     }
 
     // 登录倒计时

@@ -15,13 +15,7 @@ class OSearchController: UITableViewController {
     var searchBar:UISearchBar?
     var modelList = [RLMObject]()
 
-    var searchDesc:String? {
-
-        didSet {
-
-            searchWithDB()
-        }
-    }
+    var searchDesc:String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,7 +62,8 @@ class OSearchController: UITableViewController {
         modelList.removeAll()
         let preText = self.searchDesc ?? ""
 
-        let pre = NSPredicate.init(format: "contentText CONTAINS %@", preText)
+        // AND uid == %@  ,OUser.getUserId()
+        let pre = NSPredicate.init(format: "contentText CONTAINS %@ ", preText)
         let list = ONoteRealmModel.objects(with: pre)
 
         for i in 0..<UInt(list.count) {
@@ -126,6 +121,7 @@ extension OSearchController:UISearchBarDelegate,UISearchControllerDelegate,UISea
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String)  {
 
         self.searchDesc = searchText
+        searchWithDB()
     }
 
 //    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {

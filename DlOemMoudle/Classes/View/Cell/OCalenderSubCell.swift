@@ -47,7 +47,7 @@ class OCalenderSubCell: UITableViewCell {
         yearLab.text = data.year.toString() + "." + data.monthName
 
         titleLab.text = model.title
-        timeLab.text = data.hour.toString() + ":" + data.minute.toString()
+        timeLab.text = data.hour.toString() + ":" + String(format: "%2d", data.minute)//data.minute.toString()
         contentV.attributedText = model.contentText.toAttr(lineH: 2, font: UIFont.systemFont(ofSize: 12))
 //        contentV.text = model.contentText
     }

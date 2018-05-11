@@ -49,6 +49,7 @@ class ONewNoteController: WPViewController {
         model.title =  self.titleText
         model.contentText = self.bodyText
         model.contentHtml = self.bodyText
+        model.uid = OUser.getUserId()
 
 
         model.timeInterval = Int(Date().timeIntervalSince1970)
@@ -58,10 +59,6 @@ class ONewNoteController: WPViewController {
         dateFormatter.dateFormat = "yyyy-MM-dd"
 
         model.dayDateStr = dateFormatter.string(from: Date())
-
-
-
-
 
         if model.title == nil && model.contentText == nil {
             DlOemHUD.showError(title: "请输入日记信息")

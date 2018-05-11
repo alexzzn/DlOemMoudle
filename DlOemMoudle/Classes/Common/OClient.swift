@@ -33,18 +33,6 @@ class OClient: NSObject {
         return false
     }
     
-    //    //是否显示 引导图
-    //    class func isShowGuider() -> Bool {
-    //
-    //        if GTUser.getAppVer() != GTClient.clientVersion() {
-    //            let ver = GTClient.clientVersion()
-    //            GTUser.setAppVer(ver: ver)
-    //            GTUser.setIsShowGuider(isOk: true)
-    //        }
-    //
-    //        return GTUser.getIsShowGuider()//UserDefaults.standard.bool(forKey: APPISSHOWGUIDEPIC)
-    //    }
-    
     //客服端 版本号
     class func clientVersion() -> String {
         

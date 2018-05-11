@@ -88,8 +88,7 @@ extension OUser {
         if islogin == false {
 
             // TODO
-//            OUser.clearCurrentUserID()
-//            OUser.resetToken()
+            setUserId(text: "")
             setToken(text: "")
             
         } 
@@ -128,12 +127,12 @@ extension OUser {
 
     class func setUserId(text:String) {
 
-        UserDefaults.standard.set(text, forKey: "ouserid")
+        UserDefaults.standard.set(text, forKey: "odluserid")
     }
 
     class func getUserId() ->String {
 
-        let str = UserDefaults.standard.object(forKey: "ouserid") as? String ?? "-"
+        let str = UserDefaults.standard.object(forKey: "odluserid") as? String ?? "-"
         debugPrint(str)
         return str
     }

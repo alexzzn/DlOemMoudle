@@ -32,11 +32,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let textF = UITextField()
         
-        textF.rx.text.map { (v) -> Bool in
+        let singal = textF.rx.text.map { (str) -> Bool in
+            
             return false
         }
+ 
         
         return true
+    }
+    
+    public var isEnabled: Binder<Bool> {
+        
+        return Binder.init(self, binding: { (vc, isOk) in
+            
+        })
     }
 }
 
