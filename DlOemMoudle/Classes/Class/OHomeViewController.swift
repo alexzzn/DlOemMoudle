@@ -22,8 +22,6 @@ class OHomeViewController: UIViewController {
     @IBOutlet weak var dayLab: UILabel!
     @IBOutlet weak var weekDayLab: UILabel!
     @IBOutlet weak var zhYearLab: UILabel!
-    
-    let disposeBag = DisposeBag()
 
     var contentList = [RLMObject]()
 
@@ -101,21 +99,19 @@ class OHomeViewController: UIViewController {
             setFirstLaunch()
         }
 
-        action.rx.controlEvent(.touchUpInside).subscribe(onNext: { [weak self] () in
-            
-            let vc = ONewNoteController()
-            self?.navigationController?.pushViewController(vc, animated: true)
-        }).disposed(by: disposeBag)
-
-        
         // 检测是否登录
         if OUser.isLogin() == false {
             
             guard let vc = OCommon.getDlOemStory()?.instantiateViewController(withIdentifier: "OLoginRootNav") else { return }
             navigationController?.present(vc, animated: true, completion: nil)
+            return
         }
 
-        
+        action.bk_(whenTapped: { [weak self] in
+
+            let vc = ONewNoteController()
+            self?.navigationController?.pushViewController(vc, animated: true)
+        })
 
     }
 

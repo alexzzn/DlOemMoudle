@@ -29,8 +29,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0E4209C220A591EE006E52DC /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
-		0E4209C320A591EE006E52DC /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		0EF45C1720A1CDF1005739A5 /* DlOemMoudle_Example-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DlOemMoudle_Example-Bridging-Header.h"; sourceTree = "<group>"; };
 		0EF45C1820A1CDF1005739A5 /* test.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = test.h; sourceTree = "<group>"; };
 		0EF45C1920A1CDF1005739A5 /* test.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = test.m; sourceTree = "<group>"; };
@@ -386,7 +384,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				607FACDA1AFB9204008FA782 /* Base */,
-				0E4209C220A591EE006E52DC /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -395,7 +392,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				607FACDF1AFB9204008FA782 /* Base */,
-				0E4209C320A591EE006E52DC /* zh-Hans */,
 			);
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";
@@ -407,7 +403,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -461,7 +456,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
