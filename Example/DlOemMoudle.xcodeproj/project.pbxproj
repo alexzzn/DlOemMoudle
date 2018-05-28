@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0ED3EC7220B7DFA800075463 /* DLModuleServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ED3EC7120B7DFA800075463 /* DLModuleServer.m */; };
 		0EF45C1A20A1CDF1005739A5 /* test.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EF45C1920A1CDF1005739A5 /* test.m */; };
 		3AE6D9164D1728D5357AFE5B /* Pods_DlOemMoudle_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2B34AFC11F5763AFB91DFD3 /* Pods_DlOemMoudle_Example.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
@@ -19,6 +20,9 @@
 /* Begin PBXFileReference section */
 		0E4209C220A591EE006E52DC /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		0E4209C320A591EE006E52DC /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		0ED3EC7020B7DFA800075463 /* DLModuleServer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DLModuleServer.h; sourceTree = "<group>"; };
+		0ED3EC7120B7DFA800075463 /* DLModuleServer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DLModuleServer.m; sourceTree = "<group>"; };
+		0ED3EC7620B7E64A00075463 /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
 		0EF45C1720A1CDF1005739A5 /* DlOemMoudle_Example-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DlOemMoudle_Example-Bridging-Header.h"; sourceTree = "<group>"; };
 		0EF45C1820A1CDF1005739A5 /* test.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = test.h; sourceTree = "<group>"; };
 		0EF45C1920A1CDF1005739A5 /* test.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = test.m; sourceTree = "<group>"; };
@@ -36,7 +40,7 @@
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		8B7A150B1DBE1653B41960C3 /* Pods-DlOemMoudle_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DlOemMoudle_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DlOemMoudle_Tests/Pods-DlOemMoudle_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		9C982F778E22551B619219AB /* DlOemMoudle.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = DlOemMoudle.podspec; path = ../DlOemMoudle.podspec; sourceTree = "<group>"; };
+		9C982F778E22551B619219AB /* DlOemMoudle.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = DlOemMoudle.podspec; path = ../DlOemMoudle.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		C2B34AFC11F5763AFB91DFD3 /* Pods_DlOemMoudle_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DlOemMoudle_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB8FAC4FB16E7AF7071341BD /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		FFCA5BDB4502674FF25A71FD /* Pods-DlOemMoudle_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DlOemMoudle_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DlOemMoudle_Tests/Pods-DlOemMoudle_Tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -79,6 +83,9 @@
 			children = (
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
+				0ED3EC7620B7E64A00075463 /* Header.h */,
+				0ED3EC7020B7DFA800075463 /* DLModuleServer.h */,
+				0ED3EC7120B7DFA800075463 /* DLModuleServer.m */,
 				0EF45C1820A1CDF1005739A5 /* test.h */,
 				0EF45C1920A1CDF1005739A5 /* test.m */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
@@ -186,7 +193,7 @@
 				};
 			};
 			buildConfigurationList = 607FACCB1AFB9204008FA782 /* Build configuration list for PBXProject "DlOemMoudle" */;
-			compatibilityVersion = "Xcode 3.2";
+			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -243,6 +250,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-DlOemMoudle_Example/Pods-DlOemMoudle_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/BeeHive/BeeHive.framework",
 				"${BUILT_PRODUCTS_DIR}/BlocksKit/BlocksKit.framework",
 				"${BUILT_PRODUCTS_DIR}/DlOemMoudle/DlOemMoudle.framework",
 				"${BUILT_PRODUCTS_DIR}/FSCalendar/FSCalendar.framework",
@@ -260,6 +268,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BeeHive.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BlocksKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DlOemMoudle.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSCalendar.framework",
@@ -287,6 +296,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
+				0ED3EC7220B7DFA800075463 /* DLModuleServer.m in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 				0EF45C1A20A1CDF1005739A5 /* test.m in Sources */,
 			);
@@ -366,6 +376,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -412,7 +423,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -429,10 +441,14 @@
 					"$(PROJECT_DIR)/DlOemMoudle",
 				);
 				INFOPLIST_FILE = DlOemMoudle/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = org.cocoapods.demo.zzn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_OBJC_BRIDGING_HEADER = "DlOemMoudle/DlOemMoudle_Example-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
@@ -452,7 +468,10 @@
 					"$(PROJECT_DIR)/DlOemMoudle",
 				);
 				INFOPLIST_FILE = DlOemMoudle/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = org.cocoapods.demo.zzn;
 				PRODUCT_NAME = "$(TARGET_NAME)";

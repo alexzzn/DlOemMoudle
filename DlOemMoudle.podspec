@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
     s.name             = 'DlOemMoudle'
-    s.version          = '0.2.0'
+    s.version          = '0.3.0'
     s.summary          = '小行家马甲包组件'
     
     # This description is used to generate tags and improve search results.
@@ -33,9 +33,9 @@ Pod::Spec.new do |s|
     s.platform = :ios,'8.0'
     s.source_files = 'DlOemMoudle/Classes/**/*.{h,m,swift}'
     
-    s.resource_bundles = {
-        'DlOemMoudleRes' => ['DlOemMoudle/Assets/**/*.{storyboard}']
-    }
+    #s.resource_bundles = {
+    #        'DlOemMoudleRes' => ['DlOemMoudle/Assets/**/*.{storyboard}']
+    #    }
     
     s.resources = 'DlOemMoudle/Assets/dloem.bundle/**/*.{*}'
     
@@ -55,11 +55,12 @@ Pod::Spec.new do |s|
     s.dependency  'SVProgressHUD'
     s.dependency  'BlocksKit'
     s.dependency  'SnapKit'
-
+    
     s.dependency  'Realm'
     s.dependency  'MBProgressHUD'
     s.dependency  'YYModel'
     s.dependency  'NSObject-SafeExpectations'
+    # s.dependency   'CTMediator''
     
     
 end

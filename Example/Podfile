@@ -1,9 +1,11 @@
 use_frameworks!
 platform :ios, '9.0'
+#source 'https://github.com/ModulizationDemo/PrivatePods.git'
 
 target 'DlOemMoudle_Example' do
     
   pod 'DlOemMoudle', :path => '../'
+  pod 'BeeHive'
 #  pod 'FSCalendar'
 #  pod 'SwiftDate'
 #  pod 'RxSwift'
@@ -12,10 +14,4 @@ target 'DlOemMoudle_Example' do
 #  pod 'RealmSwift'
 #
 #  pod 'CocoaLumberjack'
-
-  target 'DlOemMoudle_Tests' do
-    inherit! :search_paths
-
-    
-  end
 end

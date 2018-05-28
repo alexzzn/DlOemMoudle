@@ -7,12 +7,21 @@
 //
 
 import UIKit
+import BeeHive
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        super.viewWillAppear(animated)
+        let v = BeeHive.shareInstance().createService(DLModuleProtocol.self) as? DLModuleServer
+        v?.setBack(UIColor.red)
+        
     }
 
     override func didReceiveMemoryWarning() {

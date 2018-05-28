@@ -11,6 +11,7 @@ import DlOemMoudle
 
 import RxCocoa
 import RxSwift
+import BeeHive
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -22,21 +23,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
     
-        let rootNav = OCommon.getDlOemStory()?.instantiateInitialViewController()
         
+        
+        BHContext.shareInstance().application = application
+        BHContext.shareInstance().launchOptions = launchOptions
+        
+        BeeHive.shareInstance().context = BHContext.shareInstance()
+        
+        
+        let rootNav = ViewController()//OCommon.getDlOemStory()?.instantiateInitialViewController()
+        
+        rootNav.view.backgroundColor = UIColor.white
         window?.frame = UIScreen.main.bounds
         window?.rootViewController = rootNav
         window?.makeKeyAndVisible()
         
         
         
-        let textF = UITextField()
-        
-        let singal = textF.rx.text.map { (str) -> Bool in
-            
-            return false
-        }
+//        let textF = UITextField()
+//        
+//        let singal = textF.rx.text.map { (str) -> Bool in
+//            
+//            return false
+//        }
  
+ 
+        
+       
+        //super.application(application, didFinishLaunchingWithOptions: launchOptions)
+        
+        
         
         return true
     }
